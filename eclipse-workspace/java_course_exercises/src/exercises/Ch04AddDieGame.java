@@ -23,30 +23,27 @@ public class Ch04AddDieGame {
 		//initialize what we know we need
 		int rolls = 5;
 		int goal = 20;
-		//int total = 0;
-		//loop the dice
-		
-	for (int i=0; i<rolls; i++) {
-				
 		int total = 0;
-		do {
+		int result;
+		
+		//loop the dice
+		for (int i=0; i<rolls; i++) {
+				
 			Random random = new Random();
 			int die = random.nextInt(6) + 1;
-			System.out.println("You have rolled the number " + die + ". You are on space " + total + " and have " + (goal - total) + " spaces to go." );
 			total = die + total;
+			result = goal - total;
+				if( result < 0) 
+				System.out.println("You have rolled the number " + die + ". You are on space " + 
+			goal + " and have 0 spaces to go." );	
+				else System.out.println("You have rolled the number " + die + ". You are on space " + 
+						total + " and have " + result  + " spaces to go." );
 			
+			if(total >= 20) break;
 			
-		} //end of do loop
+		} //marks end of for loop
 		
-		while (total < 20); //decides whether to continue with do loop, if false, ends loop
-			
 		if(total < 20) {System.out.println("You lost");}
-		else {System.out.println("Congrats! You have moved " + total + " and won the game");}
-		
-		
-	} //marks end of for loop
-	
-		
+		else {System.out.println("Congrats! You have moved " + goal + " spaces and won the game");}
 	}
-
 }

@@ -13,4 +13,12 @@ double calculateAre() {
 	return length * width;
 }
 
+double getLength() {
+	return length;
+}
+
+void setLength(double Length) {
+	
+}
+
 }

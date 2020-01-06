@@ -35,6 +35,7 @@ public class Ch03AddCoins {
 		
 		//add the coins
 		amount = quarters + dimes + nickels + pennies;
+		scanner.close();
 		
 		if(amount < 100)
 			System.out.println("You are " + (100 - amount) + " cents short");

@@ -11,7 +11,7 @@ public class GrossPayInputValidation {
 	public static void main(String[] args) {
 		// initialize known variables
 		int rate = 15;
-		int maxHOurs = 40;
+		int maxHours = 40;
 		
 		//get the hours worked
 		Scanner scanner = new Scanner(System.in);

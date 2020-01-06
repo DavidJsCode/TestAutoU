@@ -28,6 +28,7 @@ public class AverageTestScores {
 				System.out.println("Enter the test score for test # " + (j + 1) );
 				double score = scanner.nextDouble();
 				total = total + score;
+				scanner.close();
 				
 			}
 				

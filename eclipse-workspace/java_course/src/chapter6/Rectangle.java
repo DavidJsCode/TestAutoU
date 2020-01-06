@@ -1,24 +1,42 @@
-
+package chapter6;
 
 public class Rectangle {
 
 private double length;
 private double width;
 
-double calculatePerimeter() {
-	return (2 * length) + (2 * width);
+public Rectangle(){
+	length = 0;
+	width = 0;
 }
 
-double calculateAre() {
-	return length * width;
+public Rectangle(double width, double length) {
+setWidth(width);
+this.length = length;
 }
 
-double getLength() {
+public double getLength() {
 	return length;
 }
 
-void setLength(double Length) {
-	
+public void setLength(double length) {
+	this.length = length;
+}
+
+public double getWidth() {
+	return width;
+}
+
+public void setWidth(double width) {
+	this.width = width;
+}
+
+public double calculatePerimeter() {
+	return (2 * length) + (2 * width);
+}
+
+public double calculateArea() {
+	return length * width;
 }
 
 }

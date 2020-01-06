@@ -17,8 +17,9 @@ public class Ch02MadLibSentence {
 		System.out.println("Enter a whole number:");
 		int numeral = scanner.nextInt();
 		
-		System.out.println("On a " + adjective + " " + season + " day, I drink " + numeral + " cups of coffee.");
 		
+		System.out.println("On a " + adjective + " " + season + " day, I drink " + numeral + " cups of coffee.");
+		scanner.close();
 	}
 
 }

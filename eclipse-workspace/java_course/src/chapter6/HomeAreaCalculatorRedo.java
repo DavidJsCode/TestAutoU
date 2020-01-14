@@ -3,17 +3,19 @@ package chapter6;
 import java.util.Scanner;
 
 public class HomeAreaCalculatorRedo {
-
+	Scanner scanner = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 
-		Rectangle kitchen = getRoom();
-		Rectangle bathroom = getRoom();
-		
-
+		HomeAreaCalculatorRedo calculator = new HomeAreaCalculatorRedo();	
+		Rectangle kitchen = calculator.getRoom();
+		Rectangle bathroom = calculator.getRoom();
+		double area = calculator.calculateTotalArea(kitchen, bathroom);
+		System.out.println("The total area is " + area);
+		calculator.scanner.close();
 	}
 
-	public static Rectangle getRoom() {
-		Scanner scanner = new Scanner(System.in);
+	public Rectangle getRoom() {
 	
 		System.out.println("Enter the width");
 		double width = scanner.nextDouble();
@@ -21,9 +23,11 @@ public class HomeAreaCalculatorRedo {
 		System.out.println("Enter the length");
 		double length = scanner.nextDouble();
 		
-		scanner.close();
-		
-		return Rectangle;
+		return new Rectangle(length, width);
+	}
+	
+	public double calculateTotalArea(Rectangle rectangle1, Rectangle rectangle2) {
+		return rectangle1.calculateArea() + rectangle2.calculateArea();
 	}
 	
 }

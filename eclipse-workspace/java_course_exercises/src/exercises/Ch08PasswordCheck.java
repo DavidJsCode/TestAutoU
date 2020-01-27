@@ -9,7 +9,7 @@ import java.util.Scanner;
  * not be the same as the old password.
  */
 
-public class Ch09PasswordCheck {
+public class Ch08PasswordCheck {
 
 	private static String oldPassword = "P@ss1word";
 	private static String username = "D2@jar";

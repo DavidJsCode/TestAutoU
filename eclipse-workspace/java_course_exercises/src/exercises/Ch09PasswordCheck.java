@@ -11,13 +11,9 @@ import java.util.Scanner;
 
 public class Ch09PasswordCheck {
 
-	private static String oldPassword = "pass1word";
-	private static String username = "djar";
-	private static char[] uppers = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-	private static String[] specialCharacters = {"!","@","#","$","%","&","*",")","(","_","-","=","+","/","?"};
-	
+	private static String oldPassword = "P@ss1word";
+	private static String username = "D2@jar";
 	private static Scanner scanner = new Scanner(System.in);
-	private static boolean result;
 	
 	// start main
 	public static void main(String[] args) {
@@ -25,9 +21,9 @@ public class Ch09PasswordCheck {
 	String newPassword = enterPassword();
 	scanner.close();
 	if (!checkUppercase(newPassword)) System.out.println("The password must contain a capital letter");
-	//checkSpecialCharacter(newPassword);
-	//checkUsername(newPassword);
-	//checkAgainstOldPassword(newPassword);
+	if (!checkSpecialCharacter(newPassword)) System.out.println("The password must contain a special character");
+	if (checkUsername(newPassword)) System.out.println("The password cannot equal the username");
+	if (checkAgainstOldPassword(newPassword)) System.out.println("The password cannot match the old password");
 	}
 	
 	private static String enterPassword() {
@@ -37,29 +33,28 @@ public class Ch09PasswordCheck {
 	}
 	
 	private static boolean checkUppercase(String text){
-		//if string contains  uppercase, return true
-		result = false;
-		for (int i = 0; i < text.length(); i++) {
-			char currentLetter = text.charAt(i);
-	           if(currentLetter == uppers[i]) {
-	                result = true;
-	                break;
-				}
-			}
-		return result;		
-	}
-	
-	/*
-	private static boolean checkSpecialCharacter(String newPassword) {
-		
-	}
-	
-	private static boolean checkUsername(String newPassword) {
-		
+		//if string contains uppercase, return true
+		if (!text.equals(text.toLowerCase())) {
+			return true;			
+		}		
+		else return false;
 	}
 
-	private static boolean checkAgainstOldPassword(String newPassword) {
+	private static boolean checkSpecialCharacter(String text) {
+		if (!text.matches("[A-Za-z0-9 ]*"))
+			return true;
+		else return false;
+		}
 	
+	private static boolean checkUsername(String text) {
+		if (text.equals(username) )
+			return true;
+		else return false;
 	}
-*/
+
+	private static boolean checkAgainstOldPassword(String text) {
+		if (text.equals(oldPassword))
+			return true;
+		else return false;
+	}
 } 

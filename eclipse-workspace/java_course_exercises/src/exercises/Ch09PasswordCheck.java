@@ -13,11 +13,8 @@ public class Ch09PasswordCheck {
 
 	private static String oldPassword = "pass1word";
 	private static String username = "djar";
-	private static char[] uppers = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-	private static String[] specialCharacters = {"!","@","#","$","%","&","*",")","(","_","-","=","+","/","?"};
 	
 	private static Scanner scanner = new Scanner(System.in);
-	private static boolean result;
 	
 	// start main
 	public static void main(String[] args) {
@@ -25,7 +22,7 @@ public class Ch09PasswordCheck {
 	String newPassword = enterPassword();
 	scanner.close();
 	if (!checkUppercase(newPassword)) System.out.println("The password must contain a capital letter");
-	//checkSpecialCharacter(newPassword);
+	if (!checkSpecialCharacter(newPassword)) System.out.println("The password must contain a special character");
 	//checkUsername(newPassword);
 	//checkAgainstOldPassword(newPassword);
 	}
@@ -37,27 +34,23 @@ public class Ch09PasswordCheck {
 	}
 	
 	private static boolean checkUppercase(String text){
-		//if string contains  uppercase, return true
-		result = false;
-		for (int i = 0; i < text.length(); i++) {
-			char currentLetter = text.charAt(i);
-	           if(currentLetter == uppers[i]) {
-	                result = true;
-	                break;
-				}
-			}
-		return result;		
+		//if string contains uppercase, return true
+		if (!text.equals(text.toLowerCase())) {
+			return true;			
+		}		
+		else return false;
 	}
 	
-	/*
+
 	private static boolean checkSpecialCharacter(String newPassword) {
-		
-	}
-	
+		if (!newPassword.matches("[A-Za-z0-9 ]*"))
+		return true;
+		else return false;
+		}
+	/*
 	private static boolean checkUsername(String newPassword) {
 		
 	}
-
 	private static boolean checkAgainstOldPassword(String newPassword) {
 	
 	}

@@ -11,18 +11,14 @@ public class CompareMaps {
 	   Then print the final grades.
 	 */
 
-	public static void compareMaps(Map <String, Integer> original, Map<String, Integer> backup) {
+	public static void compareMaps(HashMap original, HashMap backup) {
 		
 		//first get the maps from the methods
-		original = TestResults.getOriginalGrades();
-		backup = TestResults.getMakeUpGrades();
+		original = new HashMap(TestResults.getOriginalGrades());
+		backup = new HashMap(TestResults.getMakeUpGrades()) ;
 		
 		
 		for (var entry : original.entrySet()) {
-			//if (entry.getValue() < entry.getValue());
-			int originalEntry = original.get(entry);
-			if (originalEntry > backup.get(entry)) {
-				System.out.println("it works");
 			} 
 		}
 		
@@ -30,7 +26,4 @@ public class CompareMaps {
 		//if you call put(key, value) passing in a key that already exists, the map will update that entry with the new value that was passed in
 		//getObjectKey returns the value associated with the key
 		
-	}
-	
-	
 }
